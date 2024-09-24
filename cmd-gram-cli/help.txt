@@ -1,0 +1,12 @@
+Welcome to cmd-gram-cli! Available commands:
+
+/login           - Log in to your account by entering email and password.
+/reg             - Register a new account with your email and password.
+/new-chat        - Create a new chat by providing a user email.
+/all-chats       - List all your available chats.
+/open-chat [n]   - Open a chat by its index in the chat list (replace [n] with the chat number).
+
+Use /exit in any chat to leave it.
+If you're unsure about what to do, use the /help command.
+
+Note: Make sure to log in in before creating or opening chats.

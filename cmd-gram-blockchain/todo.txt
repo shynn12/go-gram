@@ -1,0 +1,6 @@
+1. writing to block
+
+
+*2. reading from block
+    /need db
+    /need map
