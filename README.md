@@ -1,6 +1,4 @@
-![image](https://github.com/user-attachments/assets/e4b83f9b-300e-4233-b2f3-7fa31fd5af44)# Blockchain Messenger
-
-## Description
+# Blockchain Messenger
 
 This is a messenger in which you don't have to worry about someone saying "there was no such thing", because in addition to saving messages to the Postgresql database, 
 it also saves to a small blockchain. Which is known to have the property of immunability, and even its creators will face enormous difficulties if they want to delete or change something.
@@ -54,7 +52,15 @@ Select a chat by typing ```/open-chat``` and entering its ID. For example ```/op
 ![image](https://github.com/user-attachments/assets/57f2e326-fb45-4c66-a2da-35f331809dfb)  
 Since you are in a chat, all messages except the ```/exit``` command will be shown to all chat participants).
 
+## 🤝 Contributing
 
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes.
+4. Push the branch to your fork.
+5. Open a Pull Request.
 
 
 
