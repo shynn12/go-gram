@@ -17,9 +17,9 @@ stack: Go, Postgres, blockchain
 ### 2. **Install the required dependencies**:
     go get ./...    
 in the each file
-### 3. **Starting all up**:
-First of all: We have 3 directories in the project. Each of them must be running in order to work correctly.
+
 ## Usage:  
+First of all: We have 3 directories in the project. Each of them must be running in order to work correctly.  
 ### 1. **cmd-gram**:
 This directory must be started first. This is the heart of the app. The basic logic is happening here. "main" is located in ```cmd```. Then ```go build``` and execute created file. 
 ⚠️If you have troubles with reading ```.toml``` file you can use the ```-config-path``` command to set the configuration path manually.  
