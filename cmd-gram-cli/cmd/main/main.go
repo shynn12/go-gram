@@ -9,6 +9,7 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"os"
 	"strconv"
@@ -33,12 +34,18 @@ var ip = flag.String("ip", "0.0.0.0:8080", "Input an IP to connect")
 var client = &http.Client{}
 var User = &models.User{}
 var chatMap = map[int]*models.Chat{}
-
 var reader = bufio.NewReader(os.Stdin)
 var scanner = bufio.NewScanner(reader)
+var PATH string
 
 func init() {
-	f, err := os.Open("gopher.txt")
+	path, err := os.Getwd()
+	if err != nil {
+		log.Println(err)
+	}
+	PATH = path[:34]
+
+	f, err := os.Open(fmt.Sprintf("%s\\text\\gopher.txt", PATH))
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -52,22 +59,10 @@ func init() {
 		}
 		fmt.Print(string(body[:n]))
 	}
+	f.Close()
+
 	fmt.Print("\n\n")
-	f.Close()
-	f, err = os.Open("help.txt")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	body = make([]byte, 128)
-	for {
-		n, err := f.Read(body)
-		if err == io.EOF {
-			break
-		}
-		fmt.Print(string(body[:n]))
-	}
-	f.Close()
+	handleHelp()
 
 }
 
@@ -380,7 +375,7 @@ func newChat() ([]byte, error) {
 }
 
 func handleHelp() {
-	f, err := os.Open("help.txt")
+	f, err := os.Open(fmt.Sprintf("%s/text/help.txt", PATH))
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -394,4 +389,5 @@ func handleHelp() {
 		fmt.Print(string(body[:n]))
 	}
 	f.Close()
+	fmt.Print("\n\n")
 }
