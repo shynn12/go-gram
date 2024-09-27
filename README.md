@@ -21,13 +21,14 @@ stack: Go, Postgres, blockchain
 in the each file
 ### 3. **Starting all up**:
 First of all: We have 3 directories in the project. Each of them must be running in order to work correctly.
-#### 1. **cmd-gram**:
+## Usage:  
+### 1. **cmd-gram**:
 This directory must be started first. This is the heart of the app. The basic logic is happening here. "main" is located in ```cmd```. Then ```go build``` and execute created file.  
 ❗Important note: The application uses Postgresql and the device must be running a Postgres server.
-#### 2. **cmd-gram-blockchain**:
+### 2. **cmd-gram-blockchain**:
 This directory is responsible for storing and writing to the blockchain, it is removed from the main program as it can be used on blockchain nodes to create decentralization.  
 To start this up go to ```cmd```. Then ```go build``` and execute created file.
-#### 3. **cmd-gram-cli**:
+### 3. **cmd-gram-cli**:
 This is the application client. Before using this, you must be sure that all previous prerequisites listed above are met. Use the ```-ip``` flag to select the server address to connect to.
 ### 4. **Configurating**:
 To configurate the application you should change data in ```cmd-gram/pkg/client/postgresql/api.toml``` (idk why it`s there, will be changed!).
