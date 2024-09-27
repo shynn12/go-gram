@@ -43,7 +43,7 @@ func init() {
 	if err != nil {
 		log.Println(err)
 	}
-	PATH = path[:34]
+	PATH = path[:len(path)-9]
 
 	f, err := os.Open(fmt.Sprintf("%s\\text\\gopher.txt", PATH))
 	if err != nil {
@@ -82,7 +82,7 @@ func main() {
 			handleLogin()
 
 		case "/reg":
-			handleSignin()
+			handleReg()
 
 		case "/new-chat":
 			handleNewChat()
@@ -130,7 +130,7 @@ func handleLogin() {
 	handleResponse(resp, &User, "Welcome")
 }
 
-func handleSignin() {
+func handleReg() {
 	if isAuthenticated() {
 		fmt.Println("You are already logged in.")
 		return
@@ -196,7 +196,7 @@ func handleAllChats() {
 	var chats map[string][]models.Chat
 	handleResponse(resp, &chats, "")
 	for i, chat := range chats["chat"] {
-		fmt.Println(i+1, chat.Name)
+		fmt.Println(chat.ID, chat.Name)
 		chatMap[i+1] = &chat
 	}
 }
@@ -248,11 +248,7 @@ func startMessaging(cid int, conn *websocket.Conn) error {
 	go func(c *websocket.Conn) {
 		msg := &models.MessageDTO{}
 		for {
-			if !c.IsServerConn() {
-				return
-			}
 			websocket.JSON.Receive(conn, msg)
-
 			view.Messages(msg, User)
 		}
 	}(conn)

@@ -2,7 +2,9 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
+	"os"
 
 	"github.com/BurntSushi/toml"
 	"github.com/gorilla/mux"
@@ -14,7 +16,12 @@ var (
 )
 
 func init() {
-	flag.StringVar(&configPath, "config-path", "c:/Users/daji2/go/src/cmd-gram/pkg/client/postgresql/api.toml", "path to config file")
+	path, err := os.Getwd()
+	if err != nil {
+		log.Println(err)
+	}
+	path = fmt.Sprintf("%s\\pkg\\client\\postgresql\\api.toml", path[:len(path)-3])
+	flag.StringVar(&configPath, "config-path", path, "path to config file")
 }
 
 func main() {
