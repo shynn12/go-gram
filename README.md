@@ -21,7 +21,7 @@ in the each file
 ## Usage:  
 First of all: We have 3 directories in the project. Each of them must be running in order to work correctly.  
 ### 1. **cmd-gram**:
-This directory must be started first. This is the heart of the app. The basic logic is happening here. "main" is located in ```cmd```. Then ```go build``` and execute created file. 
+This directory must be started first. This is the heart of the app. The basic logic is happening here. "main" is located in ```cmd```. Then ```go build``` and execute created file.  
 ⚠️If you have troubles with reading ```.toml``` file you can use the ```-config-path``` command to set the configuration path manually.  
 
 ❗Important note: The application uses Postgresql and the device must be running a Postgres server.  
