@@ -21,9 +21,10 @@ in the each file
 First of all: We have 3 directories in the project. Each of them must be running in order to work correctly.
 ## Usage:  
 ### 1. **cmd-gram**:
-This directory must be started first. This is the heart of the app. The basic logic is happening here. "main" is located in ```cmd```. Then ```go build``` and execute created file.  
-⚠️If you have troubles with reading ```.toml``` file you can use the ```-config-path``` command to set the configuration path manually.
-❗Important note: The application uses Postgresql and the device must be running a Postgres server.
+This directory must be started first. This is the heart of the app. The basic logic is happening here. "main" is located in ```cmd```. Then ```go build``` and execute created file. 
+⚠️If you have troubles with reading ```.toml``` file you can use the ```-config-path``` command to set the configuration path manually.  
+
+❗Important note: The application uses Postgresql and the device must be running a Postgres server.  
 ### 2. **cmd-gram-blockchain**:
 This directory is responsible for storing and writing to the blockchain, it is removed from the main program as it can be used on blockchain nodes to create decentralization.  
 To start this up go to ```cmd```. Then ```go build``` and execute created file.
@@ -38,19 +39,19 @@ Launch the cmd-gram
 ![image](https://github.com/user-attachments/assets/aa67521e-7591-4bcd-acca-17c637692301)  
 Then launch blockchain  
 ![image](https://github.com/user-attachments/assets/6f3422d1-77fe-4aa4-b023-2683cc341792)  
-(When the blockchain was launched, the first block was created (genesis block))
+(When the blockchain was launched, the first block was created (genesis block))  
 Then run the cli with the flag where you specify the server address with the -ip.  
 ![image](https://github.com/user-attachments/assets/e08afe64-e511-4b88-965a-3617558647c2)  
-Congratulations! Now we are ready to start.
+**Congratulations!** Now we are ready to start.  
 Register your account  
 ![image](https://github.com/user-attachments/assets/be7846ff-369a-4b3f-8f66-5706f99c72d3)  
-Create a chat with a user whose email address you know
+Create a chat with a user whose email address you know  
 ![image](https://github.com/user-attachments/assets/dc6a4ea4-804e-4a33-ad32-374539aae07f)  
-and then you can see all your chats with its id if type ```/all-chats```:  
-![image](https://github.com/user-attachments/assets/3cc8b99f-9d68-4704-a14c-419681057123)
-Select a chat by typing ```/open-chat``` and entering its ID. For example ```/open-chat 43```. If you have messages they will be shown.  
+and then you can see all your chats with its id if type ```/all-chats```   
+![image](https://github.com/user-attachments/assets/3cc8b99f-9d68-4704-a14c-419681057123)  
+Select a chat by typing ```/open-chat``` and entering its ID. For example ```/open-chat 43```. If you have messages they will be shown   
 ![image](https://github.com/user-attachments/assets/57f2e326-fb45-4c66-a2da-35f331809dfb)  
-Since you are in a chat, all messages except the ```/exit``` command will be shown to all chat participants).
+Since you are in a chat, all messages except the ```/exit``` command will be shown to all chat participants.
 
 ## 🤝 Contributing
 
@@ -61,9 +62,3 @@ Contributions are welcome! Please follow these steps:
 3. Commit your changes.
 4. Push the branch to your fork.
 5. Open a Pull Request.
-
-
-
-
-
-
