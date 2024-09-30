@@ -25,6 +25,9 @@ This directory must be started first. This is the heart of the app. The basic lo
 ⚠️If you have troubles with reading ```.toml``` file you can use the ```-config-path``` command to set the configuration path manually.  
 
 ❗Important note: The application uses Postgresql and the device must be running a Postgres server.  
+DB structure:  
+![image](https://github.com/user-attachments/assets/40b23774-5866-45c0-90c4-911ed2ed9833)  
+
 ### 2. **cmd-gram-blockchain**:
 This directory is responsible for storing and writing to the blockchain, it is removed from the main program as it can be used on blockchain nodes to create decentralization.  
 To start this up go to ```cmd```. Then ```go build``` and execute created file.
