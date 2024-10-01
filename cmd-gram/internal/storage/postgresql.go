@@ -207,6 +207,48 @@ func (d *db) GetAllMessages(ctx context.Context, cid int) ([]models.Message, err
 }
 
 func New(pool *pgxpool.Pool) Storage {
+	tx, err := pool.Begin(context.Background())
+	defer tx.Rollback(context.Background())
+	if err != nil {
+		log.Fatal()
+	}
+	_, err = tx.Exec(context.Background(), `
+	CREATE TABLE IF NOT exists users (
+		id serial primary key,
+		encrypted_password text,
+		email varchar(40)
+	);
+	CREATE TABLE IF NOT exists party (
+		chat_id bigint,
+		user_id bigint
+	);
+	CREATE TABLE IF NOT exists chats (
+		id serial primary key,
+		name varchar(30)
+	);
+	CREATE TABLE IF NOT exists messages (
+		id serial primary key,
+		body text,
+		time timestamptz,
+		chat_id bigint,
+		user_id bigint	
+	);
+	ALTER TABLE messages
+	    ADD CONSTRAINT fk_message_chats FOREIGN KEY (chat_id) REFERENCES chats (id);
+	
+	ALTER TABLE messages
+	    ADD CONSTRAINT fk_message_users FOREIGN KEY (user_id) REFERENCES users (id);
+	
+	ALTER TABLE party
+	    ADD CONSTRAINT fk_party_chats FOREIGN KEY (user_id) REFERENCES users (id);
+
+	ALTER TABLE party
+	    ADD CONSTRAINT fk_party_messages FOREIGN KEY (chat_id) REFERENCES chats (id);
+	`)
+	if err != nil {
+		log.Println(err)
+	}
+	tx.Commit(context.Background())
 	return &db{
 		pool: pool,
 	}

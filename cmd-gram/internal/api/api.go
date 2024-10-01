@@ -86,7 +86,7 @@ func (api *api) configureStore() error {
 
 func (api *api) Handle() {
 	api.r.HandleFunc("/api/hello", api.handleHello)
-	api.r.HandleFunc("/api/sign-in", api.SingIn).Methods(http.MethodPost)
+	api.r.HandleFunc("/api/sign-in", api.Register).Methods(http.MethodPost)
 	api.r.HandleFunc("/api/login", api.LogIn).Methods(http.MethodPost)
 	api.r.HandleFunc("/api/new-chat", api.NewChat).Methods(http.MethodPost)
 	api.r.HandleFunc("/api/{user_id}/chats", api.GetAllChats).Methods(http.MethodGet)
@@ -97,7 +97,7 @@ func (api *api) handleHello(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "Hello")
 }
 
-func (api *api) SingIn(w http.ResponseWriter, r *http.Request) {
+func (api *api) Register(w http.ResponseWriter, r *http.Request) {
 	var u = &models.UserDTO{}
 	var status int
 	var res any
